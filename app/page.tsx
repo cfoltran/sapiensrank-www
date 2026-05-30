@@ -1,65 +1,129 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const features = [
+  { icon: "🏃", text: "Sync your Apple Health data daily — steps, sleep, heart rate, and more." },
+  { icon: "🧮", text: "Get a wellness score from 0 to 100, calculated entirely on your device." },
+  { icon: "🌍", text: "Rank against users worldwide or filter by country." },
+  { icon: "📈", text: "Track your score history and spot your trends over time." },
+  { icon: "🔔", text: "Daily reminders to keep your streak alive." },
+  { icon: "🔒", text: "Your raw health data never leaves your phone." },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="bg-black text-white min-h-screen">
+
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-black/80 backdrop-blur-md border-b border-white/5">
+        <span className="text-sm font-semibold tracking-tight">Sapiens Rank</span>
+        <div className="flex items-center gap-6 text-xs text-gray-400">
+          <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+          <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms</Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+      </nav>
+
+      {/* Hero */}
+      <section className="pt-32 pb-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs uppercase tracking-widest text-gray-500 mb-4">
+            Sapiens Rank
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-semibold leading-tight mb-6">
+            Your body, ranked.{" "}
+            <span className="text-gray-400">Globally.</span>
+          </h1>
+          <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+            Sapiens Rank turns your daily health data into a score and ranks you
+            against people around the world. No cheating. No guesswork. Just your numbers.
+          </p>
+          {/* App Store badge placeholder — replace src when available */}
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://apps.apple.com/fr/app/voxontop/id6753363277"
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-block transition-transform hover:-translate-y-0.5"
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/app-store.svg"
+              alt="Download on the App Store"
+              width={160}
+              height={44}
+              className="h-[44px] w-auto mx-auto"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
           </a>
         </div>
-      </main>
+      </section>
+
+      {/* Screenshots placeholder */}
+      <section className="pb-20 px-6">
+        <div className="flex gap-4 overflow-x-auto pb-4 max-w-5xl mx-auto snap-x snap-mandatory">
+          {[0, 1, 2, 3].map((n) => (
+            <div
+              key={n}
+              className="flex-shrink-0 snap-center w-[200px] sm:w-[220px] h-[476px] rounded-[28px] border border-white/10 bg-white/5 flex items-center justify-center text-gray-700 text-xs"
+            >
+              screenshot {n + 1}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <hr className="border-white/10 mx-6 mb-20" />
+
+      {/* Features */}
+      <section className="pb-20 px-6">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-8">
+            How it works
+          </h2>
+          <ul className="flex flex-col gap-5">
+            {features.map((f) => (
+              <li key={f.text} className="flex items-start gap-4 text-sm text-gray-300 leading-relaxed">
+                <span className="text-xl flex-shrink-0 w-7">{f.icon}</span>
+                {f.text}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <hr className="border-white/10 mx-6 mb-20" />
+
+      {/* About */}
+      <section className="pb-24 px-6">
+        <div className="max-w-2xl mx-auto text-sm text-gray-400 leading-relaxed">
+          <p>
+            Sapiens Rank connects to Apple Health to read your daily activity — sleep, steps,
+            heart rate variability, calories burned, and more. It computes a single score out of 100
+            on your device and submits only that number to our leaderboard.
+          </p>
+          <p className="mt-4">
+            Your raw health data never leaves your phone. We never sell or share your data.
+            The ranking is purely based on your daily habits — consistent effort beats everything else.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3 text-xs text-gray-600">
+            <span>Free</span>
+            <span>·</span>
+            <span>iOS 16+</span>
+            <span>·</span>
+            <span>Requires Apple Health</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 px-6 py-8">
+        <div className="max-w-2xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs text-gray-600">
+          <span>© {new Date().getFullYear()} Sapiens Rank</span>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-gray-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-gray-400 transition-colors">Terms &amp; Conditions</Link>
+            <a href="mailto:contact@pommef.com" className="hover:text-gray-400 transition-colors">Contact</a>
+          </div>
+        </div>
+      </footer>
+
     </div>
   );
 }
