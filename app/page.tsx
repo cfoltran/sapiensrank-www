@@ -1,14 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const screenshots = [
+  { src: "/2.PNG", alt: "Today screen" },
+  { src: "/1.PNG", alt: "World leaderboard" },
+  { src: "/3.png", alt: "1v1 live challenge" },
+  { src: "/4.png", alt: "Victory screen" },
+  { src: "/5.PNG", alt: "Battle map" },
+  { src: "/6.PNG", alt: "Profile and 30-day trend" },
+];
+
 const features = [
-  { icon: "🏃", text: "Sync your Apple Health data daily — steps, sleep, heart rate, and more." },
+  { icon: "🏃", text: "Sync your Apple Health data daily: steps, sleep, heart rate, and more." },
   { icon: "🧮", text: "Get a wellness score from 0 to 100, calculated entirely on your device." },
   { icon: "🌍", text: "Rank against users worldwide or filter by country." },
+  { icon: "⚡", text: "Challenge friends 1v1. Whoever scores higher over the period wins." },
   { icon: "📈", text: "Track your score history and spot your trends over time." },
-  { icon: "🔔", text: "Daily reminders to keep your streak alive." },
   { icon: "🔒", text: "Your raw health data never leaves your phone." },
 ];
+
 
 export default function Home() {
   return (
@@ -16,7 +26,10 @@ export default function Home() {
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-black/80 backdrop-blur-md border-b border-white/5">
-        <span className="text-sm font-semibold tracking-tight">Sapiens Rank</span>
+        <div className="flex items-center gap-2">
+            <Image src="/AppIcon.png" alt="Sapiens Rank" width={28} height={28} className="rounded-md" />
+            <span className="text-sm font-semibold tracking-tight">Sapiens Rank</span>
+          </div>
         <div className="flex items-center gap-6 text-xs text-gray-400">
           <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
           <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms</Link>
@@ -37,33 +50,32 @@ export default function Home() {
             Sapiens Rank turns your daily health data into a score and ranks you
             against people around the world. No cheating. No guesswork. Just your numbers.
           </p>
-          {/* App Store badge placeholder — replace src when available */}
           <a
-            href="https://apps.apple.com/fr/app/voxontop/id6753363277"
+            href="https://l.instagram.com/?u=https%3A%2F%2Ftestflight.apple.com%2Fjoin%2Fm2F6JEJ6%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio&e=AUC8ZEWryW_7jO8j0zKWndJl0U72uIjeUwz4ubrWHPP4xK8D_cFg9P11K_0dfyE3kmugqn-MGs36P0xpRppa-PmWhCNS6L-mPQwAESrJQfvqUYt2CPZhbB_JGQUmrxQ-zCnMMjkRKYUIuTeo34pRE75ZYm2E"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 bg-white text-black text-sm font-semibold px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5"
           >
-            <Image
-              src="/app-store.svg"
-              alt="Download on the App Store"
-              width={160}
-              height={44}
-              className="h-[44px] w-auto mx-auto"
-            />
+            Join the beta
           </a>
         </div>
       </section>
 
-      {/* Screenshots placeholder */}
+      {/* Screenshots */}
       <section className="pb-20 px-6">
-        <div className="flex gap-4 overflow-x-auto pb-4 max-w-5xl mx-auto snap-x snap-mandatory">
-          {[0, 1, 2, 3].map((n) => (
+        <div className="flex gap-4 overflow-x-auto pb-4 max-w-5xl mx-auto snap-x snap-mandatory scrollbar-none">
+          {screenshots.map((s) => (
             <div
-              key={n}
-              className="flex-shrink-0 snap-center w-[200px] sm:w-[220px] h-[476px] rounded-[28px] border border-white/10 bg-white/5 flex items-center justify-center text-gray-700 text-xs"
+              key={s.src}
+              className="flex-shrink-0 snap-center w-[200px] sm:w-[220px] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl"
             >
-              screenshot {n + 1}
+              <Image
+                src={s.src}
+                alt={s.alt}
+                width={440}
+                height={952}
+                className="w-full h-auto"
+              />
             </div>
           ))}
         </div>
@@ -88,19 +100,23 @@ export default function Home() {
         </div>
       </section>
 
+
       <hr className="border-white/10 mx-6 mb-20" />
 
       {/* About */}
       <section className="pb-24 px-6">
         <div className="max-w-2xl mx-auto text-sm text-gray-400 leading-relaxed">
           <p>
-            Sapiens Rank connects to Apple Health to read your daily activity — sleep, steps,
+            Sapiens Rank connects to Apple Health to read your daily activity: sleep, steps,
             heart rate variability, calories burned, and more. It computes a single score out of 100
             on your device and submits only that number to our leaderboard.
           </p>
           <p className="mt-4">
             Your raw health data never leaves your phone. We never sell or share your data.
-            The ranking is purely based on your daily habits — consistent effort beats everything else.
+            The ranking is purely based on your daily habits. Consistent effort beats everything else.
+          </p>
+          <p className="mt-4">
+            Want more? Form a guild and conquer hex territories on the battle map. Pick a health metric and a time window. The guild with the highest collective score wins. Each territory you capture unlocks a new member slot. Defenders hold on ties; you have to outperform to conquer.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 text-xs text-gray-600">
             <span>Free</span>
