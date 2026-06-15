@@ -14,7 +14,9 @@ const features = [
   { icon: "🏃", text: "Sync your Apple Health data daily: steps, sleep, heart rate, and more." },
   { icon: "🧮", text: "Get a wellness score from 0 to 100, calculated entirely on your device." },
   { icon: "🌍", text: "Rank against users worldwide or filter by country." },
-  { icon: "⚡", text: "Challenge friends 1v1. Whoever scores higher over the period wins." },
+  { icon: "⚔️", text: "Challenge friends 1v1. Pick a metric and a time window, whoever scores higher wins." },
+  { icon: "🛡️", text: "Form a guild and pool your scores. The team with the highest collective effort wins." },
+  { icon: "🗺️", text: "Conquer hex territories on the battle map. Capture one to unlock a new member slot." },
   { icon: "📈", text: "Track your score history and spot your trends over time." },
   { icon: "🔒", text: "Your raw health data never leaves your phone." },
 ];
@@ -43,12 +45,12 @@ export default function Home() {
             Sapiens Rank
           </p>
           <h1 className="text-4xl sm:text-5xl font-semibold leading-tight mb-6">
-            Your body, ranked.{" "}
-            <span className="text-gray-400">Globally.</span>
+            Get healthier with friends.{" "}
+            <span className="text-gray-400">Climb the global leaderboard.</span>
           </h1>
           <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Sapiens Rank turns your daily health data into a score and ranks you
-            against people around the world. No cheating. No guesswork. Just your numbers.
+            Connect Apple Health, earn a daily score from your sleep, steps and activity,
+            and see how you stack up against friends and the world.
           </p>
           <a
             href="https://l.instagram.com/?u=https%3A%2F%2Ftestflight.apple.com%2Fjoin%2Fm2F6JEJ6%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio&e=AUC8ZEWryW_7jO8j0zKWndJl0U72uIjeUwz4ubrWHPP4xK8D_cFg9P11K_0dfyE3kmugqn-MGs36P0xpRppa-PmWhCNS6L-mPQwAESrJQfvqUYt2CPZhbB_JGQUmrxQ-zCnMMjkRKYUIuTeo34pRE75ZYm2E"
@@ -114,9 +116,6 @@ export default function Home() {
           <p className="mt-4">
             Your raw health data never leaves your phone. We never sell or share your data.
             The ranking is purely based on your daily habits. Consistent effort beats everything else.
-          </p>
-          <p className="mt-4">
-            Want more? Form a guild and conquer hex territories on the battle map. Pick a health metric and a time window. The guild with the highest collective score wins. Each territory you capture unlocks a new member slot. Defenders hold on ties; you have to outperform to conquer.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 text-xs text-gray-600">
             <span>Free</span>
