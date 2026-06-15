@@ -53,7 +53,7 @@ export default function Home() {
             and see how you stack up against friends and the world.
           </p>
           <a
-            href="https://l.instagram.com/?u=https%3A%2F%2Ftestflight.apple.com%2Fjoin%2Fm2F6JEJ6%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio&e=AUC8ZEWryW_7jO8j0zKWndJl0U72uIjeUwz4ubrWHPP4xK8D_cFg9P11K_0dfyE3kmugqn-MGs36P0xpRppa-PmWhCNS6L-mPQwAESrJQfvqUYt2CPZhbB_JGQUmrxQ-zCnMMjkRKYUIuTeo34pRE75ZYm2E"
+            href="https://testflight.apple.com/join/m2F6JEJ6?utm_source=ig&utm_medium=social&utm_content=link_in_bio"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-black text-sm font-semibold px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5"
