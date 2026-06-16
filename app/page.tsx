@@ -54,12 +54,18 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://testflight.apple.com/join/m2F6JEJ6?utm_source=ig&utm_medium=social&utm_content=link_in_bio"
+              href="https://apps.apple.com/fr/app/sapiensrank/id6771508578"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-black text-sm font-semibold px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5"
+              className="inline-flex transition-transform hover:-translate-y-0.5"
             >
-              Join the beta
+              <Image
+                src="/app-store.svg"
+                alt="Download on the App Store"
+                width={148}
+                height={48}
+                priority
+              />
             </a>
             <a
               href="https://app.notion.com/p/SapiensRank-roadmap-381b384ee6578129b4c5e6bf4ee1d95e?source=copy_link"
