@@ -52,14 +52,24 @@ export default function Home() {
             Connect Apple Health, earn a daily score from your sleep, steps and activity,
             and see how you stack up against friends and the world.
           </p>
-          <a
-            href="https://testflight.apple.com/join/m2F6JEJ6?utm_source=ig&utm_medium=social&utm_content=link_in_bio"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-black text-sm font-semibold px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5"
-          >
-            Join the beta
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="https://testflight.apple.com/join/m2F6JEJ6?utm_source=ig&utm_medium=social&utm_content=link_in_bio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-black text-sm font-semibold px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5"
+            >
+              Join the beta
+            </a>
+            <a
+              href="https://app.notion.com/p/c01e4c1373bf4d76a65f91fca64ba846?v=381b384ee65781a0bab5000c13009156&source=copy_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-gray-400 hover:text-white underline underline-offset-4 transition-colors"
+            >
+              Submit an idea
+            </a>
+          </div>
         </div>
       </section>
 
