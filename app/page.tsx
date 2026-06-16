@@ -62,7 +62,7 @@ export default function Home() {
               Join the beta
             </a>
             <a
-              href="https://app.notion.com/p/c01e4c1373bf4d76a65f91fca64ba846?v=381b384ee65781a0bab5000c13009156&source=copy_link"
+              href="https://app.notion.com/p/SapiensRank-roadmap-381b384ee6578129b4c5e6bf4ee1d95e?source=copy_link"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-400 hover:text-white underline underline-offset-4 transition-colors"
