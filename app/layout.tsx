@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sapiens Rank",
-  description: "Your body, ranked. Globally.",
+  title: "Sapiens Rank — Walk. Sleep. Conquer.",
+  description:
+    "Your real life powers a game of conquest. Earn a daily health score and lead your guild to war over a hex world in space.",
   icons: { icon: "/AppIcon.png" },
 };
 

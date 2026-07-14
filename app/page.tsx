@@ -2,23 +2,23 @@ import Image from "next/image";
 import Link from "next/link";
 
 const screenshots = [
-  { src: "/2.PNG", alt: "Today screen" },
-  { src: "/1.PNG", alt: "World leaderboard" },
-  { src: "/3.png", alt: "1v1 live challenge" },
-  { src: "/4.png", alt: "Victory screen" },
-  { src: "/5.PNG", alt: "Battle map" },
-  { src: "/6.PNG", alt: "Profile and 30-day trend" },
+  { src: "/1.PNG", alt: "Today screen" },
+  { src: "/2.PNG", alt: "World leaderboard" },
+  { src: "/3.PNG", alt: "Battle map" },
+  { src: "/4.PNG", alt: "Guild" },
 ];
 
 const features = [
   { icon: "🏃", text: "Sync your Apple Health data daily: steps, sleep, heart rate, and more." },
   { icon: "🧮", text: "Get a wellness score from 0 to 100, calculated entirely on your device." },
   { icon: "🌍", text: "Rank against users worldwide or filter by country." },
-  { icon: "⚔️", text: "Challenge friends 1v1. Pick a metric and a time window, whoever scores higher wins." },
-  { icon: "🛡️", text: "Form a guild and pool your scores. The team with the highest collective effort wins." },
-  { icon: "🗺️", text: "Conquer hex territories on the battle map. Capture one to unlock a new member slot." },
+  { icon: "🛡️", text: "Form a guild and fight over a hex world floating in space. Every territory you hold unlocks a member slot." },
+  { icon: "⚔️", text: "Wage 24-hour territory battles. Victory goes to the guild with the most real steps, calories, stand hours or exercise minutes every member counts." },
+  { icon: "🗳️", text: "War council: propose an attack, your guild has 30 minutes to vote or counter-propose. Silence is consent." },
+  { icon: "🧭", text: "Save 1,000 Sapies to colonize a frontier hex and expand the known world or stage a comeback from nothing." },
+  { icon: "🏆", text: "Win battles to split a Sapies pool by contribution. The top warrior is crowned Alpha Sapiens." },
   { icon: "📈", text: "Track your score history and spot your trends over time." },
-  { icon: "🔒", text: "Your raw health data never leaves your phone." },
+  { icon: "🔒", text: "Your detailed health records stay on your phone. Only daily totals power your score and battles private, never sold." },
 ];
 
 
@@ -45,12 +45,13 @@ export default function Home() {
             Sapiens Rank
           </p>
           <h1 className="text-4xl sm:text-5xl font-semibold leading-tight mb-6">
-            Get healthier with friends.{" "}
-            <span className="text-gray-400">Climb the global leaderboard.</span>
+            Walk. Sleep. <span className="text-lime-300">Conquer.</span>
           </h1>
           <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Connect Apple Health, earn a daily score from your sleep, steps and activity,
-            and see how you stack up against friends and the world.
+            Your real life powers a game of conquest. Connect Apple Health, earn a
+            daily score from your sleep, steps and activity then lead your guild
+            to war over a hex world in space, where every real step counts on the
+            battlefield.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -126,12 +127,14 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-sm text-gray-400 leading-relaxed">
           <p>
             Sapiens Rank connects to Apple Health to read your daily activity: sleep, steps,
-            heart rate variability, calories burned, and more. It computes a single score out of 100
-            on your device and submits only that number to our leaderboard.
+            heart rate variability, calories burned, and more. Your score out of 100 is computed
+            on your device, and guild battles are decided by real daily totals the guild that
+            actually moved the most wins the territory.
           </p>
           <p className="mt-4">
-            Your raw health data never leaves your phone. We never sell or share your data.
-            The ranking is purely based on your daily habits. Consistent effort beats everything else.
+            Your detailed health records never leave your phone. Only the daily totals needed
+            for your score and battles are stored, protected and private. We never sell or share
+            your data. Consistent effort beats everything else.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 text-xs text-gray-600">
             <span>Free</span>
