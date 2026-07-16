@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const screenshots = [
-  { src: "/1.PNG", alt: "Today screen" },
-  { src: "/2.PNG", alt: "Battle map" },
-  { src: "/3.PNG", alt: "Battle map attack" },
-  { src: "/4.PNG", alt: "Leaderboard" },
-  { src: "/5.PNG", alt: "Presentation page" },
+  { src: "/1.png", alt: "Today screen" },
+  { src: "/2.png", alt: "Battle map" },
+  { src: "/3.png", alt: "Battle map attack" },
+  { src: "/4.png", alt: "Leaderboard" },
+  { src: "/5.png", alt: "Presentation page" },
 ];
 
 const features = [
