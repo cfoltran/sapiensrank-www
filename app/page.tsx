@@ -3,9 +3,10 @@ import Link from "next/link";
 
 const screenshots = [
   { src: "/1.PNG", alt: "Today screen" },
-  { src: "/2.PNG", alt: "World leaderboard" },
-  { src: "/3.PNG", alt: "Battle map" },
-  { src: "/4.PNG", alt: "Guild" },
+  { src: "/2.PNG", alt: "Battle map" },
+  { src: "/3.PNG", alt: "Battle map attack" },
+  { src: "/4.PNG", alt: "Leaderboard" },
+  { src: "/5.PNG", alt: "Presentation page" },
 ];
 
 const features = [
