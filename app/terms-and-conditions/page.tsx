@@ -1,7 +1,11 @@
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 export default function TermsAndConditions() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-[#111] text-white">
-      <div className="max-w-4xl mx-auto px-4 py-12 space-y-8">
+      <Header />
+      <div className="max-w-4xl mx-auto px-4 pt-32 pb-12 space-y-8">
         <h1 className="text-4xl font-bold mb-4">Terms &amp; Conditions for Sapiens Rank</h1>
         <p className="text-gray-400"><strong>Last Updated: 30/05/2026</strong></p>
 
@@ -159,6 +163,7 @@ export default function TermsAndConditions() {
           </p>
         </section>
       </div>
+      <Footer />
     </div>
   );
 }
