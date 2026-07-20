@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Podium from "./components/Podium";
 
 const screenshots = [
   { src: "/1.png", alt: "Today screen" },
@@ -106,6 +107,10 @@ export default function Home() {
         </div>
       </section>
 
+
+      <hr className="border-white/10 mx-6 mb-20" />
+
+      <Podium />
 
       <hr className="border-white/10 mx-6 mb-20" />
 
