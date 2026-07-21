@@ -33,7 +33,7 @@ export default function Home() {
             Sapiens Rank
           </p>
           <h1 className="text-4xl sm:text-5xl font-semibold leading-tight mb-6">
-            Walk. Sleep. <span className="text-lime-300">Conquer.</span>
+            Burn calories. <span className="text-lime-300">Fuel your empire.</span>
           </h1>
           <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
             Your real life powers a game of conquest. Sync Apple Health, turn
@@ -67,8 +67,8 @@ export default function Home() {
       </section>
 
       {/* Screenshots */}
-      <section className="pb-20 px-6">
-        <div className="flex gap-4 overflow-x-auto pb-4 max-w-5xl mx-auto snap-x snap-mandatory scrollbar-none">
+      <section className="pb-20">
+        <div className="flex gap-4 overflow-x-auto pb-4 px-6 snap-x snap-mandatory scrollbar-none">
           {screenshots.map((s) => (
             <div
               key={s.src}
