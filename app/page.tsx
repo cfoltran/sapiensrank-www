@@ -68,21 +68,23 @@ export default function Home() {
 
       {/* Screenshots */}
       <section className="pb-20">
-        <div className="flex gap-4 overflow-x-auto pb-4 px-6 snap-x snap-mandatory scrollbar-none">
-          {screenshots.map((s) => (
-            <div
-              key={s.src}
-              className="flex-shrink-0 snap-center w-[200px] sm:w-[220px] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl"
-            >
-              <Image
-                src={s.src}
-                alt={s.alt}
-                width={440}
-                height={952}
-                className="w-full h-auto"
-              />
-            </div>
-          ))}
+        <div className="overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none">
+          <div className="flex gap-4 w-max mx-auto px-6">
+            {screenshots.map((s) => (
+              <div
+                key={s.src}
+                className="flex-shrink-0 snap-center w-[200px] sm:w-[220px] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl"
+              >
+                <Image
+                  src={s.src}
+                  alt={s.alt}
+                  width={440}
+                  height={952}
+                  className="w-full h-auto"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
