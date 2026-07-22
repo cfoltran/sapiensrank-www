@@ -4,11 +4,11 @@ import Footer from "./components/Footer";
 import Podium from "./components/Podium";
 
 const screenshots = [
-  { src: "/1.png", alt: "Today screen" },
-  { src: "/2.png", alt: "Battle map" },
-  { src: "/3.png", alt: "Battle map attack" },
-  { src: "/4.png", alt: "Leaderboard" },
-  { src: "/5.png", alt: "Presentation page" },
+  { src: "/1.webp", alt: "Today screen" },
+  { src: "/2.webp", alt: "Battle map" },
+  { src: "/3.webp", alt: "Battle map attack" },
+  { src: "/4.webp", alt: "Leaderboard" },
+  { src: "/5.webp", alt: "Presentation page" },
 ];
 
 const steps = [
@@ -70,7 +70,7 @@ export default function Home() {
       <section className="pb-20">
         <div className="overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none">
           <div className="flex gap-4 w-max mx-auto px-6">
-            {screenshots.map((s) => (
+            {screenshots.map((s, i) => (
               <div
                 key={s.src}
                 className="flex-shrink-0 snap-center w-[200px] sm:w-[220px] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl"
@@ -81,6 +81,7 @@ export default function Home() {
                   width={440}
                   height={952}
                   className="w-full h-auto"
+                  priority={i < 3}
                 />
               </div>
             ))}
