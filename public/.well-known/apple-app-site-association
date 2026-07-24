@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "T3864H88Z4.com.pommef.sapiensrank",
+        "paths": ["/invite/*", "/guild/*"]
+      }
+    ]
+  }
+}
