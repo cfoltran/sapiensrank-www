@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
       <Header />
       <div className="max-w-4xl mx-auto px-4 pt-32 pb-12 space-y-8">
         <h1 className="text-4xl font-bold mb-4">Privacy Policy for Sapiens Rank</h1>
-        <p className="text-gray-400"><strong>Last Updated: 30/05/2026</strong></p>
+        <p className="text-gray-400"><strong>Last Updated: 09/08/2026</strong></p>
 
         <p className="text-lg leading-relaxed">
           At <strong className="text-white">Sapiens Rank</strong>, we are committed to protecting your personal data and respecting your privacy.
@@ -22,13 +22,20 @@ export default function PrivacyPolicy() {
             <li><strong className="text-white">Display name</strong>: The name or username you choose during onboarding, shown on the leaderboard.</li>
             <li><strong className="text-white">Age and country</strong>: Collected during onboarding to personalise your ranking experience.</li>
             <li>
-              <strong className="text-white">Health &amp; fitness data</strong>: With your explicit permission, we read the following metrics from Apple HealthKit:
-              resting heart rate, heart rate variability (HRV), sleep duration and stages, daily steps, active calories burned, and stand hours.
-              These data points are <strong className="text-white">processed entirely on your device</strong> to compute a daily score (an integer from 0 to 100).
-              Only this computed score — never the raw health data — is transmitted to our servers.
+              <strong className="text-white">Health &amp; fitness data</strong>: With your explicit permission, we read the following metrics from Apple Health (HealthKit) on iOS or Android Health Connect on Android:
+              heart rate variability (HRV), resting heart rate, sleep duration, daily steps, active calories burned, stand hours, and exercise minutes.
+              We also read your recorded workouts (activity type, start time, duration, distance, and calories burned).
+              Your daily score (an integer from 0 to 100) is computed <strong className="text-white">on your device</strong> from these metrics.
+              The underlying daily metric values and workout entries are then stored on our servers (Supabase, hosted in the EU) to power the leaderboard,
+              guild territory battles, and future recalculation of your score. They are held under row-level security, so that only you can access them in full,
+              and other players can only see the limited, aggregated form described in Sections 2 and 3.
             </li>
+            <li><strong className="text-white">Profile photo</strong>: If you choose to upload an avatar, it is stored in our storage (Supabase) and shown publicly next to your name on the leaderboard and on your profile. Providing a photo is optional.</li>
+            <li><strong className="text-white">Guild membership</strong>: If you join or create a guild, your guild affiliation, role, and the territories your guild holds are stored to run the team and territory-battle features.</li>
             <li><strong className="text-white">Device token</strong>: A Firebase Cloud Messaging (FCM) token, stored to send you push notifications if you grant permission.</li>
             <li><strong className="text-white">User identifier</strong>: A pseudonymous UUID assigned by our authentication provider (Supabase) to link your profile and scores.</li>
+            <li><strong className="text-white">Sign-in provider data</strong>: You can create your account with an email address, or with Sign in with Apple (iOS) or Google Sign-In (Android). When you use Apple or Google to sign in, that provider confirms your identity to us and we receive the email address associated with your account (Apple may relay a private, anonymised address).</li>
+            <li><strong className="text-white">Usage &amp; analytics data</strong>: To understand how the app is used and to improve it, we collect product-analytics events via PostHog (for example onboarding progress, a sync event that includes your daily score, and guild/territory actions), linked to your pseudonymous user identifier. Analytics are hosted in the EU and are never used for advertising.</li>
           </ul>
         </section>
 
@@ -37,12 +44,20 @@ export default function PrivacyPolicy() {
           <h2 className="text-2xl font-semibold text-white">2. How We Use Your Data</h2>
           <ul className="list-disc pl-6 space-y-3 text-lg">
             <li><strong className="text-white">Authentication</strong>: To create and secure your account.</li>
-            <li><strong className="text-white">Score calculation</strong>: To compute your daily wellness score from your HealthKit data, entirely on-device.</li>
+            <li><strong className="text-white">Score calculation</strong>: To compute your daily wellness score from your HealthKit data on your device, and to store your daily metric values so scores can be recalculated if the scoring formula changes.</li>
             <li><strong className="text-white">Leaderboard</strong>: To display your rank alongside other users (by display name and country).</li>
+            <li>
+              <strong className="text-white">Metric comparison</strong>: When another player views your profile, we show a 7-day average of your <strong className="text-white">steps, active calories, stand hours, and exercise minutes</strong> next to their own.
+              Your <strong className="text-white">sleep and HRV averages remain visible only to you</strong> and are never shown to other players.
+            </li>
+            <li>
+              <strong className="text-white">Guilds &amp; territory battles</strong>: If you belong to a guild, your raw values for the metric chosen in a battle (steps, sleep, calories, or stand hours) are summed with your teammates' over the 24-hour battle window to decide which guild wins a territory. Individual values are not shown to opposing players; only the team total is used.
+            </li>
             <li><strong className="text-white">Push notifications</strong>: To send you daily reminders or rank updates, if you opt in.</li>
+            <li><strong className="text-white">Product analytics</strong>: To measure feature usage and improve the app, using pseudonymous event data via PostHog (hosted in the EU).</li>
           </ul>
           <p className="text-lg leading-relaxed">
-            We do <strong className="text-white">not</strong> use your data for advertising, profiling, or any purpose other than providing the core features of the app.
+            We do <strong className="text-white">not</strong> use your data for advertising, and we never sell it. Beyond operating the app's core features, the only additional use is the limited, pseudonymous product analytics described above, which we use solely to understand usage and improve the app.
           </p>
         </section>
 
@@ -50,9 +65,21 @@ export default function PrivacyPolicy() {
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-white">3. Health Data</h2>
           <p className="text-lg leading-relaxed">
-            Sapiens Rank accesses Apple HealthKit data solely to calculate your daily wellness score on your device.
-            Raw health metrics are <strong className="text-white">never uploaded to our servers</strong> and are never shared with third parties.
-            You can revoke HealthKit access at any time in <strong className="text-white">Settings → Privacy &amp; Security → Health → Sapiens Rank</strong>.
+            Your daily wellness score is calculated from Apple Health (HealthKit) or Android Health Connect data on your device. The underlying daily metric values
+            (HRV, resting heart rate, sleep, steps, active calories, stand hours, exercise minutes) and your recorded workouts (type, duration, distance, calories) are then stored on our servers (Supabase, hosted in the EU),
+            protected by row-level security so that, by default, only you can read your own data.
+          </p>
+          <p className="text-lg leading-relaxed">
+            We use this data <strong className="text-white">only</strong> to operate the app's features (scoring, leaderboard, guild territory battles) and to recalculate scores if our formula changes.
+            We <strong className="text-white">never sell it, never share it with third parties for advertising, and never use it for profiling</strong>.
+            The only way another user sees any of it is in the limited, aggregated form described in Section 2:
+            a 7-day average of your steps, calories, stand hours and exercise minutes, plus a team total during a guild battle.
+            Your <strong className="text-white">sleep and HRV are never exposed to other users</strong>.
+          </p>
+          <p className="text-lg leading-relaxed">
+            You can revoke health access at any time: on iOS in <strong className="text-white">Settings → Privacy &amp; Security → Health → Sapiens Rank</strong>,
+            and on Android in the <strong className="text-white">Health Connect</strong> app under app permissions.
+            You can also request deletion of all stored metric data at any time (see Sections 6 and 8).
           </p>
         </section>
 
@@ -62,9 +89,14 @@ export default function PrivacyPolicy() {
           <p className="text-lg leading-relaxed">We use the following trusted processors to deliver our service:</p>
           <ul className="list-disc pl-6 space-y-3 text-lg">
             <li>
-              <strong className="text-white">Supabase</strong>: Our backend provider. Stores your profile (name, age, country), daily scores, and device token.
+              <strong className="text-white">Supabase</strong>: Our backend and authentication provider. Stores your profile (name, age, country, and profile photo if you upload one), daily scores, daily health metric values, workout entries, guild membership, and device token.
               Data is hosted in the EU. See{" "}
               <a href="https://supabase.com/privacy" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">Supabase's Privacy Policy</a>.
+            </li>
+            <li>
+              <strong className="text-white">PostHog</strong>: Our product-analytics provider. Receives pseudonymous usage events (linked to your user identifier) to help us understand how the app is used and improve it.
+              Data is hosted in the EU. See{" "}
+              <a href="https://posthog.com/privacy" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">PostHog's Privacy Policy</a>.
             </li>
             <li>
               <strong className="text-white">Firebase Cloud Messaging (Google)</strong>: Used exclusively to deliver push notifications.
@@ -72,9 +104,16 @@ export default function PrivacyPolicy() {
               See{" "}
               <a href="https://firebase.google.com/support/privacy" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">Firebase's Privacy Policy</a>.
             </li>
+            <li>
+              <strong className="text-white">Apple &amp; Google (sign-in)</strong>: If you choose Sign in with Apple (iOS) or Google Sign-In (Android), that provider authenticates you and confirms your identity to us. No health data is shared with them.
+              See{" "}
+              <a href="https://www.apple.com/legal/privacy/" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">Apple's Privacy Policy</a>{" "}
+              and{" "}
+              <a href="https://policies.google.com/privacy" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.
+            </li>
           </ul>
           <p className="text-lg leading-relaxed">
-            These providers act on our behalf and <strong className="text-white">do not use your data for advertising or profiling</strong>.
+            These providers act as processors on our behalf and <strong className="text-white">do not use your data for advertising or profiling</strong>.
           </p>
         </section>
 
@@ -82,9 +121,10 @@ export default function PrivacyPolicy() {
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-white">5. Legal Basis for Processing</h2>
           <ul className="list-disc pl-6 space-y-3 text-lg">
-            <li><strong>Contract</strong>: To provide core services (account, leaderboard, score calculation).</li>
-            <li><strong>Consent</strong>: For optional features — HealthKit access and push notifications. You may withdraw consent at any time.</li>
-            <li><strong>Legitimate interests</strong>: To maintain the security and integrity of our platform.</li>
+            <li><strong>Contract</strong>: To provide core services (account, leaderboard, guilds, score calculation).</li>
+            <li><strong>Explicit consent</strong>: Health &amp; fitness data is a special category of personal data under Article 9 GDPR. We process it, store it, and display it to other players in aggregated form only on the basis of your explicit consent, given when you grant HealthKit access. You may withdraw this consent at any time by revoking HealthKit access, which stops further collection.</li>
+            <li><strong>Consent</strong>: For push notifications. You may withdraw consent at any time.</li>
+            <li><strong>Legitimate interests</strong>: To maintain the security and integrity of our platform, and to run pseudonymous product analytics to understand usage and improve the app. You may object to this processing at any time (see Section 8).</li>
           </ul>
         </section>
 
@@ -92,9 +132,9 @@ export default function PrivacyPolicy() {
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-white">6. Data Retention</h2>
           <p className="text-lg leading-relaxed">
-            Account and score data is retained while your account is active.<br />
+            Account, score, and daily health metric data is retained while your account is active.<br />
             Device tokens are refreshed automatically and deleted when you uninstall the app or revoke notification permissions.<br />
-            You may request deletion of your account and all associated data at any time.
+            You may request deletion of your account and all associated data, including your stored health metrics, at any time.
           </p>
         </section>
 
@@ -102,7 +142,7 @@ export default function PrivacyPolicy() {
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-white">7. International Data Transfers</h2>
           <p className="text-lg leading-relaxed">
-            Firebase (Google) may process data outside the European Economic Area (EEA).
+            Our core data (Supabase) and analytics (PostHog) are hosted in the EU. However, some providers, such as Firebase and Google Sign-In (Google) or Sign in with Apple (Apple), may process certain data (such as your device token or authentication identity) outside the European Economic Area (EEA).
             Where this occurs, we ensure appropriate safeguards such as the European Commission's Standard Contractual Clauses are in place to protect your data.
           </p>
         </section>

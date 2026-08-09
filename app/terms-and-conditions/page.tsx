@@ -7,7 +7,7 @@ export default function TermsAndConditions() {
       <Header />
       <div className="max-w-4xl mx-auto px-4 pt-32 pb-12 space-y-8">
         <h1 className="text-4xl font-bold mb-4">Terms &amp; Conditions for Sapiens Rank</h1>
-        <p className="text-gray-400"><strong>Last Updated: 30/05/2026</strong></p>
+        <p className="text-gray-400"><strong>Last Updated: 09/08/2026</strong></p>
 
         <p className="text-lg leading-relaxed">
           Welcome to <strong className="text-white">Sapiens Rank</strong>.
@@ -28,7 +28,7 @@ export default function TermsAndConditions() {
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-white">2. Account Registration</h2>
           <p className="text-lg leading-relaxed">
-            To use Sapiens Rank, you must create an account using your email address (via Supabase Auth).
+            To use Sapiens Rank, you must create an account using your email address, or by signing in with Apple (iOS) or Google (Android), via Supabase Auth.
             You are responsible for maintaining the confidentiality of your login credentials and for all activity occurring under your account.
             Please notify us immediately if you suspect unauthorised access to your account.
           </p>
@@ -38,9 +38,10 @@ export default function TermsAndConditions() {
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-white">3. Use of the Service</h2>
           <p className="text-lg leading-relaxed">
-            Sapiens Rank is a wellness app that uses your health data (read from Apple HealthKit with your permission) to compute a daily
-            wellness score and rank you against other users on a leaderboard. You agree to use the app only for personal,
-            non-commercial purposes and to provide accurate information during onboarding.
+            Sapiens Rank is a wellness app that uses your health data (read from Apple Health or Android Health Connect with your permission) to compute a daily
+            wellness score and rank you against other users on a leaderboard. It also includes a team layer: you may join a
+            <strong className="text-white"> guild</strong> and take part in <strong className="text-white">territory battles</strong>, where your health metrics are combined with your teammates' to compete for territories.
+            You agree to use the app only for personal, non-commercial purposes and to provide accurate information during onboarding.
             You must not attempt to manipulate your score, exploit the service, or interfere with other users' experience.
           </p>
         </section>
@@ -49,9 +50,11 @@ export default function TermsAndConditions() {
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-white">4. Health Data</h2>
           <p className="text-lg leading-relaxed">
-            Sapiens Rank requests access to Apple HealthKit data (including steps, sleep, heart rate, HRV, calories, and stand hours)
-            solely to calculate your daily wellness score. This processing happens entirely on your device —
-            raw health data is never transmitted to our servers.
+            Sapiens Rank requests access to Apple Health (HealthKit) or Android Health Connect data (including steps, sleep, HRV, resting heart rate, calories, stand hours, exercise minutes, and recorded workouts)
+            to calculate your daily wellness score. The score is computed on your device, and the underlying daily metric values and workout entries are
+            stored on our servers to run the leaderboard, guilds, and territory battles, and to recalculate scores if our formula changes.
+            How this data is stored, protected, and shown to other players in aggregated form only is described in our{" "}
+            <a href="https://sapiensrank.com/privacy" className="text-blue-400 hover:text-blue-300">Privacy Policy</a>.
           </p>
           <p className="text-lg leading-relaxed">
             The scores computed from your health data are indicative and intended for personal motivation only.
@@ -59,17 +62,20 @@ export default function TermsAndConditions() {
             Always consult a qualified healthcare professional for medical concerns.
           </p>
           <p className="text-lg leading-relaxed">
-            You may revoke HealthKit access at any time in <strong className="text-white">Settings → Privacy &amp; Security → Health → Sapiens Rank</strong>.
+            You may revoke health access at any time: on iOS in <strong className="text-white">Settings → Privacy &amp; Security → Health → Sapiens Rank</strong>, and on Android in the <strong className="text-white">Health Connect</strong> app under app permissions.
           </p>
         </section>
 
         {/* 5. Leaderboard & User Content */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-white">5. Leaderboard &amp; User Content</h2>
+          <h2 className="text-2xl font-semibold text-white">5. Leaderboard, Guilds &amp; User Content</h2>
           <p className="text-lg leading-relaxed">
-            Your display name, country, and daily score are visible to other users on the public leaderboard.
-            By creating an account, you consent to this public display.
-            You are responsible for the display name you choose — it must not be offensive, misleading, or infringe third-party rights.
+            Your display name, profile photo (if you upload one), country, and daily score are visible to other users on the public leaderboard.
+            When another player views your profile, a 7-day average of your steps, active calories, stand hours, and exercise minutes is shown alongside their own;
+            your sleep and HRV are never shown to other players. If you join a guild, your guild affiliation is visible to others, and during a
+            territory battle your health metrics are combined with your teammates' as a single team total.
+            By creating an account and granting HealthKit access, you consent to this display of aggregated data.
+            You are responsible for the display name you choose: it must not be offensive, misleading, or infringe third-party rights.
             We reserve the right to remove or modify any display name that violates these Terms.
           </p>
         </section>
@@ -87,7 +93,7 @@ export default function TermsAndConditions() {
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-white">7. Intellectual Property</h2>
           <p className="text-lg leading-relaxed">
-            The Sapiens Rank app, including its design, branding, algorithms, and underlying software, is the property of Sapiens Rank and its licensors.
+            The Sapiens Rank app, including its design, branding, algorithms, and underlying software, is the property of Pomme F and its licensors.
             You are granted a limited, non-exclusive, non-transferable, revocable licence to use the app for personal, non-commercial purposes.
             You may not copy, reproduce, distribute, reverse engineer, or create derivative works without prior written permission.
           </p>
