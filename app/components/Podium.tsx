@@ -17,7 +17,7 @@ type Player = {
   rank_delta: number | null;
 };
 
-const mono = { fontFamily: "var(--font-geist-mono)" } as const;
+const mono = { fontFamily: "var(--font-archivo)" } as const;
 
 const AVATAR_PALETTE = [
   "#FF6B7A", "#7CB6FF", "#F0A64A", "#C5A3FF", "#9BE7C4", "#FFB84A",
