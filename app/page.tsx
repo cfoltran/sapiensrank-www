@@ -12,7 +12,7 @@ const screenshots = [
 ];
 
 const steps = [
-  "Sync your Apple Health data daily: steps, sleep, heart rate, and more.",
+  "Sync your health app data daily: steps, sleep, heart rate, and more.",
   "Define your goals.",
   "Turn your calories into Sapies, the in-game money.",
   "Use your Sapies to conquer territories with your friends.",
@@ -36,8 +36,8 @@ export default function Home() {
             Burn calories. <span className="text-lime-300">Fuel your empire.</span>
           </h1>
           <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Your real life powers a game of conquest. Sync Apple Health, turn
-            your effort into Sapies, and conquer the world with your friends.
+            Your real life powers a game of conquest. Sync your health app,
+            turn your effort into Sapies, and conquer the world with your friends.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -55,12 +55,18 @@ export default function Home() {
               />
             </a>
             <a
-              href="https://maroon-gopher-b39.notion.site/5525cc75ef294f70a124137671294680?pvs=105"
+              href="https://play.google.com/store/apps/details?id=com.pommef.sapiensrank"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-gray-400 hover:text-white underline underline-offset-4 transition-colors"
+              className="inline-flex transition-transform hover:-translate-y-0.5"
             >
-              Join the Android waitlist
+              <Image
+                src="/googleplay.png"
+                alt="Get it on Google Play"
+                width={162}
+                height={48}
+                priority
+              />
             </a>
           </div>
         </div>
@@ -127,25 +133,40 @@ export default function Home() {
             Turn your daily effort into conquest. Rally your friends, climb the
             leaderboard and rule the world.
           </p>
-          <a
-            href="https://apps.apple.com/fr/app/sapiensrank/id6771508578"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex transition-transform hover:-translate-y-0.5"
-          >
-            <Image
-              src="/app-store.svg"
-              alt="Download on the App Store"
-              width={148}
-              height={48}
-            />
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="https://apps.apple.com/fr/app/sapiensrank/id6771508578"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex transition-transform hover:-translate-y-0.5"
+            >
+              <Image
+                src="/app-store.svg"
+                alt="Download on the App Store"
+                width={148}
+                height={48}
+              />
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.pommef.sapiensrank"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex transition-transform hover:-translate-y-0.5"
+            >
+              <Image
+                src="/googleplay.png"
+                alt="Get it on Google Play"
+                width={162}
+                height={48}
+              />
+            </a>
+          </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-xs text-gray-600">
             <span>Free</span>
             <span>·</span>
-            <span>iOS 16+</span>
+            <span>iOS 16+ · Android</span>
             <span>·</span>
-            <span>Requires Apple Health</span>
+            <span>Requires a health app</span>
           </div>
         </div>
       </section>
