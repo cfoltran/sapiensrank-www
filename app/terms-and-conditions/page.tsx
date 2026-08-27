@@ -7,7 +7,7 @@ export default function TermsAndConditions() {
       <Header />
       <div className="max-w-4xl mx-auto px-4 pt-32 pb-12 space-y-8">
         <h1 className="text-4xl font-bold mb-4">Terms &amp; Conditions for Sapiens Rank</h1>
-        <p className="text-gray-400"><strong>Last Updated: 09/08/2026</strong></p>
+        <p className="text-gray-400"><strong>Last Updated: 27/08/2026</strong></p>
 
         <p className="text-lg leading-relaxed">
           Welcome to <strong className="text-white">Sapiens Rank</strong>.
@@ -77,6 +77,16 @@ export default function TermsAndConditions() {
             By creating an account and granting HealthKit access, you consent to this display of aggregated data.
             You are responsible for the display name you choose: it must not be offensive, misleading, or infringe third-party rights.
             We reserve the right to remove or modify any display name that violates these Terms.
+          </p>
+          <p className="text-lg leading-relaxed">
+            <strong className="text-white">Guild chat.</strong> If you join a guild, you can post messages in your guild's chat, which are visible to the other members of that guild.
+            You are solely responsible for the content you post. You must not post content that is unlawful, harassing, hateful, defamatory, sexually explicit,
+            threatening, or otherwise objectionable, impersonate other people, or share other people's private information.
+            There is <strong className="text-white">zero tolerance for objectionable content and abusive users</strong>.
+            You can <strong className="text-white">report</strong> any message and <strong className="text-white">block</strong> any user directly from the chat.
+            We review reports and will remove offending content and eject abusive users <strong className="text-white">within 24 hours</strong>.
+            By posting, you grant us the right to store and display your messages to the other members of your guild and to moderate them.
+            We may remove any content and suspend or terminate any account that violates these Terms.
           </p>
         </section>
 
@@ -164,8 +174,10 @@ export default function TermsAndConditions() {
             non-commercial purposes in accordance with these Terms. You may not modify, distribute, reverse engineer, or exploit any part of the app.
           </p>
           <p className="text-lg leading-relaxed">
-            There is zero tolerance for abusive behaviour. Users must not choose display names or engage in any conduct that is unlawful,
-            harassing, defamatory, or otherwise inappropriate. Violation of this policy may result in immediate termination of your account.
+            There is zero tolerance for objectionable content and abusive behaviour. Users must not choose display names, post chat messages, or engage in any conduct
+            that is unlawful, harassing, hateful, defamatory, sexually explicit, or otherwise inappropriate. You can report objectionable content and block abusive users
+            from within the app; we review reports and act, including removing content and terminating accounts, within 24 hours.
+            Violation of this policy may result in immediate termination of your account.
           </p>
         </section>
       </div>

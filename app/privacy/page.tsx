@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
       <Header />
       <div className="max-w-4xl mx-auto px-4 pt-32 pb-12 space-y-8">
         <h1 className="text-4xl font-bold mb-4">Privacy Policy for Sapiens Rank</h1>
-        <p className="text-gray-400"><strong>Last Updated: 09/08/2026</strong></p>
+        <p className="text-gray-400"><strong>Last Updated: 27/08/2026</strong></p>
 
         <p className="text-lg leading-relaxed">
           At <strong className="text-white">Sapiens Rank</strong>, we are committed to protecting your personal data and respecting your privacy.
@@ -32,6 +32,8 @@ export default function PrivacyPolicy() {
             </li>
             <li><strong className="text-white">Profile photo</strong>: If you choose to upload an avatar, it is stored in our storage (Supabase) and shown publicly next to your name on the leaderboard and on your profile. Providing a photo is optional.</li>
             <li><strong className="text-white">Guild membership</strong>: If you join or create a guild, your guild affiliation, role, and the territories your guild holds are stored to run the team and territory-battle features.</li>
+            <li><strong className="text-white">Guild chat messages</strong>: If you join a guild, the messages you send in your guild's chat are stored on our servers (Supabase, hosted in the EU) and delivered to the other members of your guild. They are visible only to members of your guild, and are automatically deleted after 90 days. Please do not share sensitive personal information in chat.</li>
+            <li><strong className="text-white">Moderation data</strong>: If you block another user or report a message, we store that action (who blocked or reported which message, and any reason you provide) to keep the community safe and to review reported content. Blocking a user hides their messages from you and stops their push notifications reaching you.</li>
             <li><strong className="text-white">Device token</strong>: A Firebase Cloud Messaging (FCM) token, stored to send you push notifications if you grant permission.</li>
             <li><strong className="text-white">User identifier</strong>: A pseudonymous UUID assigned by our authentication provider (Supabase) to link your profile and scores.</li>
             <li><strong className="text-white">Sign-in provider data</strong>: You can create your account with an email address, or with Sign in with Apple (iOS) or Google Sign-In (Android). When you use Apple or Google to sign in, that provider confirms your identity to us and we receive the email address associated with your account (Apple may relay a private, anonymised address).</li>
@@ -53,6 +55,8 @@ export default function PrivacyPolicy() {
             <li>
               <strong className="text-white">Guilds &amp; territory battles</strong>: If you belong to a guild, your raw values for the metric chosen in a battle (steps, sleep, calories, or stand hours) are summed with your teammates' over the 24-hour battle window to decide which guild wins a territory. Individual values are not shown to opposing players; only the team total is used.
             </li>
+            <li><strong className="text-white">Guild chat</strong>: To deliver the messages you send to the other members of your guild, and to notify them via push notification if they have opted in.</li>
+            <li><strong className="text-white">Moderation &amp; safety</strong>: To operate blocking and reporting, review reported messages, and remove content or users that violate our Terms. We act on reports of objectionable content within 24 hours.</li>
             <li><strong className="text-white">Push notifications</strong>: To send you daily reminders or rank updates, if you opt in.</li>
             <li><strong className="text-white">Product analytics</strong>: To measure feature usage and improve the app, using pseudonymous event data via PostHog (hosted in the EU).</li>
           </ul>
@@ -121,10 +125,10 @@ export default function PrivacyPolicy() {
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-white">5. Legal Basis for Processing</h2>
           <ul className="list-disc pl-6 space-y-3 text-lg">
-            <li><strong>Contract</strong>: To provide core services (account, leaderboard, guilds, score calculation).</li>
+            <li><strong>Contract</strong>: To provide core services (account, leaderboard, guilds, guild chat, score calculation).</li>
             <li><strong>Explicit consent</strong>: Health &amp; fitness data is a special category of personal data under Article 9 GDPR. We process it, store it, and display it to other players in aggregated form only on the basis of your explicit consent, given when you grant HealthKit access. You may withdraw this consent at any time by revoking HealthKit access, which stops further collection.</li>
             <li><strong>Consent</strong>: For push notifications. You may withdraw consent at any time.</li>
-            <li><strong>Legitimate interests</strong>: To maintain the security and integrity of our platform, and to run pseudonymous product analytics to understand usage and improve the app. You may object to this processing at any time (see Section 8).</li>
+            <li><strong>Legitimate interests</strong>: To maintain the security and integrity of our platform, to moderate guild chat (operate blocking and reporting, review reported content, and remove objectionable content and abusive users), and to run pseudonymous product analytics to understand usage and improve the app. You may object to this processing at any time (see Section 8).</li>
           </ul>
         </section>
 
@@ -133,6 +137,8 @@ export default function PrivacyPolicy() {
           <h2 className="text-2xl font-semibold text-white">6. Data Retention</h2>
           <p className="text-lg leading-relaxed">
             Account, score, and daily health metric data is retained while your account is active.<br />
+            Guild chat messages are automatically deleted 90 days after they are sent.<br />
+            Moderation records (blocks and reports) are retained while your account is active to keep the community safe.<br />
             Device tokens are refreshed automatically and deleted when you uninstall the app or revoke notification permissions.<br />
             You may request deletion of your account and all associated data, including your stored health metrics, at any time.
           </p>
