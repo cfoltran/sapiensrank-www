@@ -21,7 +21,8 @@ type Shot = {
   /** Path under /public, e.g. "/guide/strava-ios-sante.png" */
   src: string;
   alt: string;
-  caption?: string;
+  /** 1-based index of the step this screenshot illustrates. */
+  step: number;
 };
 
 type Logo = {
@@ -84,54 +85,54 @@ const SOURCES: Source[] = [
         {
           src: "/guide/garmin-android-1.webp",
           alt: "Accueil de Garmin Connect sur Android, l'onglet Plus encadré en bas à droite.",
-          caption: "Étape 2 · Plus",
+          step: 2,
         },
         {
           src: "/guide/garmin-android-2.webp",
           alt: "Menu Plus de Garmin Connect, la ligne Paramètres encadrée.",
-          caption: "Étape 3 · Paramètres",
+          step: 3,
         },
         {
           src: "/guide/garmin-android-3.webp",
           alt: "Écran Paramètres de Garmin Connect, la ligne Applications connectées encadrée.",
-          caption: "Étape 3 · Applications connectées",
+          step: 3,
         },
         {
           src: "/guide/garmin-android-4.webp",
           alt: "Écran Applications connectées de Garmin Connect, la ligne Health Connect encadrée.",
-          caption: "Étape 4 · Health Connect",
+          step: 4,
         },
         {
           src: "/guide/garmin-android-5.webp",
           alt: "Écran Synchroniser avec Health Connect, le bouton Mise en route encadré.",
-          caption: "Étape 5 · Mise en route",
+          step: 5,
         },
         {
           src: "/guide/garmin-android-6.webp",
           alt: "Dialogue Android autorisant Garmin Connect à écrire dans Santé Connect, l'option Tout autoriser encadrée.",
-          caption: "Étape 6 · Tout autoriser",
+          step: 6,
         },
       ],
       ios: [
         {
           src: "/guide/garmin-ios-1.webp",
           alt: "Menu Plus de Garmin Connect, la ligne Paramètres encadrée.",
-          caption: "Étapes 1-2 · Plus → Paramètres",
+          step: 2,
         },
         {
           src: "/guide/garmin-ios-2.webp",
           alt: "Écran Paramètres de Garmin Connect, la ligne Applications connectées encadrée.",
-          caption: "Étape 3 · Applications connectées",
+          step: 3,
         },
         {
           src: "/guide/garmin-ios-3.webp",
           alt: "Écran Applications connectées de Garmin Connect, la ligne Apple Health encadrée.",
-          caption: "Étape 4 · Apple Health",
+          step: 4,
         },
         {
           src: "/guide/garmin-ios-4.webp",
           alt: "Écran Apple Health de Garmin Connect, le bouton Se connecter avec Apple Health encadré.",
-          caption: "Étape 5 · Se connecter",
+          step: 5,
         },
       ],
     },
@@ -170,49 +171,49 @@ const SOURCES: Source[] = [
         {
           src: "/guide/fitbit-ios-1.webp",
           alt: "Accueil de Google Health sur iPhone, l'icône Connexions encadrée en haut à gauche.",
-          caption: "Étape 2 · Connexions",
+          step: 2,
         },
         {
           src: "/guide/fitbit-ios-2.webp",
           alt: "Écran Connexions de Google Health, l'onglet Applis et services encadré.",
-          caption: "Étape 3 · Applis et services",
+          step: 3,
         },
         {
           src: "/guide/fitbit-ios-3.webp",
           alt: "Onglet Applis et services de Google Health, l'entrée Apple Santé encadrée.",
-          caption: "Étape 4 · Apple Santé",
+          step: 4,
         },
         {
           src: "/guide/fitbit-ios-4.webp",
           alt: "Écran iOS Accès à Santé demandant à Google Health d'écrire vos données, l'option Tout activer encadrée.",
-          caption: "Étape 5 · Tout activer",
+          step: 5,
         },
       ],
       android: [
         {
           src: "/guide/fitbit-android-1.webp",
           alt: "Accueil de Google Health sur Android, l'icône Connexions encadrée en haut à gauche.",
-          caption: "Étape 1 · Connexions",
+          step: 1,
         },
         {
           src: "/guide/fitbit-android-2.webp",
           alt: "Écran Connexions de Google Health, l'entrée Applis partenaires encadrée.",
-          caption: "Étape 2 · Applis partenaires",
+          step: 2,
         },
         {
           src: "/guide/fitbit-android-3.webp",
           alt: "Écran Applis partenaires, l'entrée Gérer Santé Connect encadrée sous Paramètres.",
-          caption: "Étape 3 · Gérer Santé Connect",
+          step: 3,
         },
         {
           src: "/guide/fitbit-android-4.webp",
           alt: "Écran Santé Connect de Google Health, le bouton Consulter encadré.",
-          caption: "Étape 4 · Consulter",
+          step: 4,
         },
         {
           src: "/guide/fitbit-android-5.webp",
           alt: "Dialogue Android autorisant Health à accéder à Santé Connect, l'option Tout autoriser encadrée.",
-          caption: "Étape 5 · Tout autoriser",
+          step: 5,
         },
       ],
     },
@@ -251,49 +252,49 @@ const SOURCES: Source[] = [
         {
           src: "/guide/strava-android-1.webp",
           alt: "Onglet Vous de Strava sur Android, l'icône Paramètres en haut à droite.",
-          caption: "Étape 2 · Vous → Paramètres",
+          step: 2,
         },
         {
           src: "/guide/strava-android-2.webp",
           alt: "Écran Paramètres de Strava, la ligne Gérer les applications et les appareils encadrée.",
-          caption: "Étape 3 · Gérer les applications",
+          step: 3,
         },
         {
           src: "/guide/strava-android-3.webp",
           alt: "Écran Autres services de Strava, la case Health Connect encadrée sous Services.",
-          caption: "Étape 4 · Health Connect",
+          step: 4,
         },
         {
           src: "/guide/strava-android-4.webp",
           alt: "Écran invitant à connecter Strava à Health Connect, le bouton Connecter encadré.",
-          caption: "Étape 5 · Connecter",
+          step: 5,
         },
         {
           src: "/guide/strava-android-5.webp",
           alt: "Dialogue Android autorisant Strava à accéder à Santé Connect, l'option Tout autoriser encadrée.",
-          caption: "Étape 6 · Tout autoriser",
+          step: 6,
         },
       ],
       ios: [
         {
           src: "/guide/strava-ios-1.webp",
           alt: "Onglet Vous de Strava, l'icône Paramètres encadrée en haut à droite.",
-          caption: "Étape 1 · Vous → Paramètres",
+          step: 1,
         },
         {
           src: "/guide/strava-ios-2.webp",
           alt: "Écran Paramètres de Strava, la ligne Gérer les applications et les appareils encadrée.",
-          caption: "Étape 2 · Gérer les applications",
+          step: 2,
         },
         {
           src: "/guide/strava-ios-3.webp",
           alt: "Écran de gestion des appareils Strava, le service Santé encadré.",
-          caption: "Étape 3 · Services → Santé",
+          step: 3,
         },
         {
           src: "/guide/strava-ios-4.webp",
           alt: "Écran Paramètres Apple Santé de Strava, les autorisations et l'option Envoyer à Apple Santé encadrées.",
-          caption: "Étape 4 · Autorisations",
+          step: 4,
         },
       ],
     },
@@ -332,54 +333,54 @@ const SOURCES: Source[] = [
         {
           src: "/guide/coros-android-1.webp",
           alt: "Onglet Profil de l'app COROS sur Android, avec l'entrée Paramètres en bas.",
-          caption: "Étape 1 · Profil → Paramètres",
+          step: 1,
         },
         {
           src: "/guide/coros-android-2.webp",
           alt: "Écran Paramètres de COROS, avec l'entrée Applications tierces.",
-          caption: "Étape 2 · Applications tierces",
+          step: 2,
         },
         {
           src: "/guide/coros-android-3.webp",
           alt: "Écran Applications tierces de COROS, avec l'entrée Synchro. des données.",
-          caption: "Étape 3 · Synchro. des données",
+          step: 3,
         },
         {
           src: "/guide/coros-android-4.webp",
           alt: "Liste des applications tierces de COROS, avec l'entrée Health Connect.",
-          caption: "Étape 4 · Health Connect",
+          step: 4,
         },
         {
           src: "/guide/coros-android-5.webp",
           alt: "Écran Health Connect de COROS, avec le bouton Synchroniser.",
-          caption: "Étape 5 · Synchroniser",
+          step: 5,
         },
         {
           src: "/guide/coros-android-6.webp",
           alt: "Dialogue Android autorisant COROS à accéder à Santé Connect, avec l'option Tout autoriser.",
-          caption: "Étape 6 · Tout autoriser",
+          step: 6,
         },
       ],
       ios: [
         {
           src: "/guide/coros-ios-1.webp",
           alt: "Onglet Profil de l'app COROS, avec l'entrée Paramètres en bas de la page.",
-          caption: "Étape 1 · Profil → Paramètres",
+          step: 1,
         },
         {
           src: "/guide/coros-ios-2.webp",
           alt: "Écran Paramètres de COROS, avec l'entrée Applications tierces.",
-          caption: "Étape 2 · Applications tierces",
+          step: 2,
         },
         {
           src: "/guide/coros-ios-3.webp",
           alt: "Écran Applications tierces de COROS, avec l'entrée Synchro. des données.",
-          caption: "Étape 3 · Synchro. des données",
+          step: 3,
         },
         {
           src: "/guide/coros-ios-4.webp",
           alt: "Liste des applications tierces de COROS, Apple Santé coché en vert.",
-          caption: "Étape 4 · Apple Santé",
+          step: 4,
         },
       ],
     },
@@ -702,48 +703,42 @@ export default function GuideSelector() {
               </div>
             )}
 
-            <ol className="mt-8 flex flex-col gap-4">
-              {steps.map((step, i) => (
-                <li
-                  key={step}
-                  className="flex gap-4 text-sm text-gray-300 leading-relaxed"
-                >
-                  <span className="flex-shrink-0 w-6 h-6 mt-px rounded-full bg-lime-300/10 text-lime-300 text-xs font-semibold flex items-center justify-center">
-                    {i + 1}
-                  </span>
-                  {step}
-                </li>
-              ))}
-            </ol>
-
-            {shots.length > 0 && (
-              <div className="mt-8 -mx-6 sm:-mx-8 overflow-x-auto">
-                <div className="flex w-max gap-4 px-6 sm:px-8">
-                  {shots.map((shot) => (
-                    <figure
-                      key={shot.src}
-                      className="w-[220px] flex-shrink-0 sm:w-[250px]"
-                    >
-                      <div className="overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.02]">
-                        <Image
-                          src={shot.src}
-                          alt={shot.alt}
-                          width={640}
-                          height={1388}
-                          sizes="(min-width: 640px) 250px, 220px"
-                          className="h-auto w-full"
-                        />
-                      </div>
-                      {shot.caption && (
-                        <figcaption className="mt-3 text-xs leading-snug text-gray-500">
-                          {shot.caption}
-                        </figcaption>
+            <ol className="mt-8 flex flex-col gap-7">
+              {steps.map((step, i) => {
+                const stepShots = shots.filter((shot) => shot.step === i + 1);
+                return (
+                  <li key={step} className="flex gap-4">
+                    <span className="mt-px flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-lime-300/10 text-xs font-semibold text-lime-300">
+                      {i + 1}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm leading-relaxed text-gray-300">
+                        {step}
+                      </p>
+                      {stepShots.length > 0 && (
+                        <div className="mt-4 flex flex-wrap gap-3">
+                          {stepShots.map((shot) => (
+                            <div
+                              key={shot.src}
+                              className="w-[190px] overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.02] sm:w-[210px]"
+                            >
+                              <Image
+                                src={shot.src}
+                                alt={shot.alt}
+                                width={640}
+                                height={1388}
+                                sizes="(min-width: 640px) 210px, 190px"
+                                className="h-auto w-full"
+                              />
+                            </div>
+                          ))}
+                        </div>
                       )}
-                    </figure>
-                  ))}
-                </div>
-              </div>
-            )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
           </article>
         )}
       </div>
