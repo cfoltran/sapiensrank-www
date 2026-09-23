@@ -1,10 +1,20 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import type { Metadata } from "next";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import { pageMetadata } from "../../i18n";
+
+export const metadata: Metadata = pageMetadata({
+  route: "privacy",
+  locale: "en",
+  title: "Privacy Policy",
+  description:
+    "How Sapiens Rank collects, uses and protects your personal and health data, and how to exercise your GDPR rights.",
+});
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-[#111] text-white">
-      <Header />
+      <Header route="privacy" />
       <div className="max-w-4xl mx-auto px-4 pt-32 pb-12 space-y-8">
         <h1 className="text-4xl font-bold mb-4">Privacy Policy for Sapiens Rank</h1>
         <p className="text-gray-400"><strong>Last Updated: 27/08/2026</strong></p>

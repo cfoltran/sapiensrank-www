@@ -12,7 +12,6 @@ type Player = {
   first_name: string;
   handle: string;
   initials: string;
-  score: number;
   country: string | null;
   rank_delta: number | null;
 };
@@ -156,9 +155,6 @@ function Slot({
           >
             #{player.rank}
           </span>
-          <span className="mt-1" style={{ ...mono, fontSize: 10, color: "#9EF5F1E8" }}>
-            {Math.round(player.score)}
-          </span>
           {player.rank_delta != null && player.rank_delta !== 0 && (
             <span className="mt-1.5">
               <DeltaBadge delta={player.rank_delta} />
@@ -188,7 +184,13 @@ function PodiumSkeleton() {
   );
 }
 
-export default function Podium() {
+export default function Podium({
+  eyebrow,
+  title,
+}: {
+  eyebrow: string;
+  title: string;
+}) {
   const [players, setPlayers] = useState<Player[] | null>(null);
   const [failed, setFailed] = useState(false);
 
@@ -212,10 +214,10 @@ export default function Podium() {
     <section className="pb-20 px-6">
       <div className="max-w-sm mx-auto">
         <p className="text-xs uppercase tracking-widest text-gray-500 mb-2 text-center">
-          World Leaderboard
+          {eyebrow}
         </p>
         <h2 className="text-2xl font-semibold text-center mb-8">
-          Today&rsquo;s top Sapiens
+          {title}
         </h2>
         {!players ? (
           <PodiumSkeleton />
