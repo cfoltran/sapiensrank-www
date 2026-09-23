@@ -19,7 +19,7 @@ export default function GlobalNotFound() {
         <p lang="fr" className="text-gray-400 mb-8">Page introuvable</p>
         <div className="flex gap-6 text-sm">
           <Link href="/" className="text-lime-300 hover:underline">Home</Link>
-          <Link href="/fr/" lang="fr" className="text-lime-300 hover:underline">Accueil</Link>
+          <Link href="/fr" lang="fr" className="text-lime-300 hover:underline">Accueil</Link>
         </div>
       </body>
     </html>

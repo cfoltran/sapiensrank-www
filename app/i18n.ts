@@ -8,11 +8,11 @@ export type Locale = "en" | "fr";
 // Every public page and its URL per language. A page without a `fr` entry is
 // English only (the legal texts), so it gets no hreflang pair.
 export const ROUTES = {
-  home: { en: "/", fr: "/fr/" },
-  guide: { en: "/health-guide/", fr: "/guide-sante/" },
-  deleteAccount: { en: "/delete-account/", fr: "/fr/supprimer-compte/" },
-  privacy: { en: "/privacy/" },
-  terms: { en: "/terms-and-conditions/" },
+  home: { en: "/", fr: "/fr" },
+  guide: { en: "/health-guide", fr: "/guide-sante" },
+  deleteAccount: { en: "/delete-account", fr: "/fr/supprimer-compte" },
+  privacy: { en: "/privacy" },
+  terms: { en: "/terms-and-conditions" },
 } satisfies Record<string, { en: string; fr?: string }>;
 
 export type RouteKey = keyof typeof ROUTES;
