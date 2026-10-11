@@ -6,15 +6,18 @@ import { routePath, type Locale, type RouteKey } from "../i18n";
 export default function Header({
   locale = "en",
   route,
+  alternate,
 }: {
   locale?: Locale;
   /** Current page, used to point the language switch at its translation. */
   route?: RouteKey;
+  /** Translation URL for pages outside ROUTES; wins over `route`. */
+  alternate?: string;
 }) {
   const t = getDictionary(locale).header;
   const other: Locale = locale === "en" ? "fr" : "en";
   // Pages that exist in one language only switch to the other home page.
-  const switchHref = routePath(
+  const switchHref = alternate ?? routePath(
     route && routePath(route, other) !== routePath(route, locale) ? route : "home",
     other,
   );

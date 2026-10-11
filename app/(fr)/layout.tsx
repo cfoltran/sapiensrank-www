@@ -8,7 +8,7 @@ const t = getDictionary("fr").meta;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: t.homeTitle, template: `%s · ${SITE_NAME}` },
+  title: { default: t.homeTitle, template: `%s | ${SITE_NAME}` },
   description: t.homeDescription,
   applicationName: SITE_NAME,
   // Shows the App Store smart banner in Safari on iPhone.

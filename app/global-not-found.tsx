@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "404 · Sapiens Rank",
+  title: "404 | Sapiens Rank",
 };
 
 // Static export: the visitor's language is unknown, so both are offered.

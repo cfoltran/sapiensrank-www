@@ -610,6 +610,7 @@ const LABELS: L<GuideLabels> = {
     empty: "Choisissez votre application pour afficher les étapes.",
     connect: ["Connecter ", " sur ", ""],
     provides: "Ce que cette source apporte à votre score :",
+    permalink: "Ouvrir ce guide sur sa propre page",
   },
   en: {
     metrics: {
@@ -629,6 +630,7 @@ const LABELS: L<GuideLabels> = {
     empty: "Choose your app to see the steps.",
     connect: ["Connect ", " on ", ""],
     provides: "What this source adds to your score:",
+    permalink: "Open this guide on its own page",
   },
 };
 
