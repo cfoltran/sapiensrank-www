@@ -59,21 +59,27 @@ const OG_IMAGE: Record<Locale, { url: string; alt: string }> = {
  */
 export function pageMetadata({
   route,
+  paths: pagePaths,
   locale,
   title,
   description,
   absoluteTitle = false,
 }: {
-  route: RouteKey;
   locale: Locale;
   title: string;
   description: string;
-  /** Skip the "· Sapiens Rank" suffix (the title already carries the brand). */
+  /** Skip the "| Sapiens Rank" suffix (the title already carries the brand). */
   absoluteTitle?: boolean;
-}): Metadata {
-  const path = routePath(route, locale);
-  const languages = routeLanguages(route);
-  const socialTitle = absoluteTitle ? title : `${title} · ${SITE_NAME}`;
+} & (
+  | { route: RouteKey; paths?: never }
+  // Pages built from data (the per-app guides) pass their URLs directly.
+  | { route?: never; paths: Record<Locale, string> }
+)): Metadata {
+  const path = route ? routePath(route, locale) : pagePaths[locale];
+  const languages = route
+    ? routeLanguages(route)
+    : { en: pagePaths.en, fr: pagePaths.fr, "x-default": pagePaths.en };
+  const socialTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
 
   return {
     title: absoluteTitle ? { absolute: title } : title,

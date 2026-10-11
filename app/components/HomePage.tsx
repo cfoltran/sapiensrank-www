@@ -121,11 +121,10 @@ export default function HomePage({ locale }: { locale: Locale }) {
             {t.ctaText}
           </p>
           <StoreBadges locale={locale} />
-          <div className="mt-8 flex flex-wrap justify-center gap-3 text-xs text-gray-600">
-            {t.badges.map((badge, i) => (
-              <span key={badge} className="contents">
-                {i > 0 && <span>·</span>}
-                <span>{badge}</span>
+          <div className="mt-8 flex flex-wrap justify-center gap-2 text-xs text-gray-500">
+            {t.badges.map((badge) => (
+              <span key={badge} className="rounded-full border border-white/10 px-3 py-1">
+                {badge}
               </span>
             ))}
           </div>

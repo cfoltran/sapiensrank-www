@@ -2,7 +2,7 @@ import type { Locale } from "./i18n";
 
 const en = {
   meta: {
-    homeTitle: "Sapiens Rank — The fitness game that turns your health into conquest",
+    homeTitle: "Sapiens Rank: the fitness game that turns your health into conquest",
     homeDescription:
       "Sapiens Rank turns your steps, sleep and heart rate into a daily health score. Earn Sapies, conquer territories with your guild and climb the world leaderboard. Free on iOS and Android.",
     guideTitle: "Sync your health data: Garmin, Fitbit, Strava, COROS",
@@ -53,7 +53,7 @@ const en = {
     ctaAccent: "Arena",
     ctaText:
       "Turn your daily effort into conquest. Rally your friends, climb the leaderboard and rule the world.",
-    badges: ["Free", "iOS 16+ · Android", "Requires a health app"],
+    badges: ["Free", "iOS 16+ and Android", "Requires a health app"],
   },
   podium: {
     eyebrow: "World Leaderboard",
@@ -71,6 +71,28 @@ const en = {
       android: "Health Connect",
       after: " on Android. Pick yours below.",
     },
+  },
+  guidePage: {
+    title: (app: string, hub: string, phone: string) =>
+      `Sync ${app} with ${hub} (${phone})`,
+    description: (app: string, hub: string, phone: string, data: string) =>
+      `Illustrated steps to send ${data} from ${app} to ${hub} on ${phone}, so they count toward your Sapiens Rank daily score.`,
+    intro: (app: string, hub: string, data: string) =>
+      `${app} does not send its data to Sapiens Rank directly: it goes through ${hub}, which the app reads every day. Once connected, ${data} flow into your score automatically.`,
+    and: "and",
+    your: "your",
+    yourData: "your data",
+    breadcrumb: "Health data guide",
+    allApps: "All apps",
+    appOnPhone: (app: string, phone: string) => `${app} on ${phone}`,
+    otherPhoneTitle: "Another phone?",
+    otherApps: "Other apps",
+    nextTitle: "What next?",
+    next: (app: string, hub: string) =>
+      `Open Sapiens Rank: your data is read every time the app opens. If nothing shows up, check in ${hub} that ${app} is allowed to write every category.`,
+    ctaTitle: "Not on Sapiens Rank yet?",
+    ctaText:
+      "Turn your steps, sleep and workouts into Sapies, conquer territories with your friends and climb the world leaderboard.",
   },
   deleteAccount: {
     title: "Delete your account",
@@ -93,7 +115,7 @@ export type Dictionary = typeof en;
 
 const fr: Dictionary = {
   meta: {
-    homeTitle: "Sapiens Rank — Le jeu fitness qui transforme votre santé en conquête",
+    homeTitle: "Sapiens Rank : le jeu fitness qui transforme votre santé en conquête",
     homeDescription:
       "Sapiens Rank transforme vos pas, votre sommeil et votre fréquence cardiaque en score santé quotidien. Gagnez des Sapies, conquérez des territoires avec votre guilde et grimpez au classement mondial. Gratuit sur iOS et Android.",
     guideTitle: "Importer vos données de santé : Garmin, Fitbit, Strava, COROS",
@@ -144,7 +166,7 @@ const fr: Dictionary = {
     ctaAccent: "l'Arène",
     ctaText:
       "Transformez vos efforts quotidiens en conquête. Rassemblez vos amis, grimpez au classement et dominez le monde.",
-    badges: ["Gratuit", "iOS 16+ · Android", "Nécessite une app santé"],
+    badges: ["Gratuit", "iOS 16+ et Android", "Nécessite une app santé"],
   },
   podium: {
     eyebrow: "Classement mondial",
@@ -162,6 +184,28 @@ const fr: Dictionary = {
       android: "Health Connect",
       after: " sur Android. Choisissez la vôtre ci-dessous.",
     },
+  },
+  guidePage: {
+    title: (app: string, hub: string, phone: string) =>
+      `Synchroniser ${app} avec ${hub} (${phone})`,
+    description: (app: string, hub: string, phone: string, data: string) =>
+      `Étapes illustrées pour envoyer ${data} de ${app} vers ${hub} sur ${phone}, et les faire compter dans votre score quotidien Sapiens Rank.`,
+    intro: (app: string, hub: string, data: string) =>
+      `${app} n'envoie pas ses données directement à Sapiens Rank : elles passent par ${hub}, que l'app lit chaque jour. Une fois la connexion faite, ${data} remontent automatiquement dans votre score.`,
+    and: "et",
+    your: "vos",
+    yourData: "vos données",
+    breadcrumb: "Guide des données santé",
+    allApps: "Toutes les applications",
+    appOnPhone: (app: string, phone: string) => `${app} sur ${phone}`,
+    otherPhoneTitle: "Un autre téléphone ?",
+    otherApps: "Autres applications",
+    nextTitle: "Et ensuite ?",
+    next: (app: string, hub: string) =>
+      `Ouvrez Sapiens Rank : vos données sont lues à chaque ouverture de l'app. Si rien n'apparaît, vérifiez dans ${hub} que ${app} a bien le droit d'écrire chaque catégorie.`,
+    ctaTitle: "Pas encore sur Sapiens Rank ?",
+    ctaText:
+      "Transformez vos pas, votre sommeil et vos séances en Sapies, conquérez des territoires avec vos amis et grimpez au classement mondial.",
   },
   deleteAccount: {
     title: "Supprimer votre compte",

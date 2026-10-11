@@ -59,4 +59,6 @@ export type GuideLabels = {
   /** Title around the app and OS names: [before app, between, after OS]. */
   connect: [string, string, string];
   provides: string;
+  /** Link from the hub's panel to the per-app page. */
+  permalink: string;
 };

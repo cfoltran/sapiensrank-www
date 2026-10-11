@@ -2,6 +2,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import GuideSelector from "./GuideSelector";
 import { getGuideLabels, getSources } from "./guideSources";
+import { guidePageHrefs } from "./guidePages";
 import { getDictionary } from "../dictionaries";
 import type { Locale } from "../i18n";
 
@@ -32,7 +33,11 @@ export default function HealthGuidePage({ locale }: { locale: Locale }) {
 
       {/* Selector */}
       <section className="px-6 pb-16">
-        <GuideSelector sources={getSources(locale)} labels={getGuideLabels(locale)} />
+        <GuideSelector
+          sources={getSources(locale)}
+          labels={getGuideLabels(locale)}
+          pageHrefs={guidePageHrefs(locale)}
+        />
       </section>
 
       <Footer locale={locale} />

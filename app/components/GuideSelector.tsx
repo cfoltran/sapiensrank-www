@@ -1,73 +1,14 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import GuideArticle, { OS_LABEL, SourceLogo } from "./GuideArticle";
 import {
-  METRIC_KEYS,
   SOURCE_IDS,
   type GuideLabels,
-  type Level,
   type OS,
   type Source,
 } from "./guideTypes";
-
-const OS_LABEL: Record<OS, string> = {
-  ios: "iPhone",
-  android: "Android",
-};
-
-const LEVEL_STYLE: Record<
-  Exclude<Level, "no">,
-  { mark: string; className: string }
-> = {
-  yes: {
-    mark: "✓",
-    className: "border-lime-300/30 bg-lime-300/10 text-lime-300",
-  },
-  partial: {
-    mark: "~",
-    className: "border-amber-300/25 bg-amber-300/[0.07] text-amber-300/90",
-  },
-};
-
-// Logos do not share an aspect ratio, so they are pinned to a common height
-// and the width follows. Sources without a logo fall back to a glyph.
-function SourceLogo({
-  source,
-  className = "",
-}: {
-  source: Source;
-  className?: string;
-}) {
-  if (!source.logo) {
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        aria-hidden="true"
-        className={`block w-auto text-gray-600 ${className}`}
-      >
-        <rect x="7" y="5" width="10" height="14" rx="3" />
-        <path d="M9.5 3.5h5M9.5 20.5h5" />
-      </svg>
-    );
-  }
-
-  return (
-    <Image
-      src={source.logo.src}
-      alt=""
-      width={source.logo.width}
-      height={source.logo.height}
-      className={`block w-auto object-contain object-left ${
-        source.logo.invert ? "invert" : ""
-      } ${className}`}
-    />
-  );
-}
 
 function detectOS(): OS | null {
   if (typeof navigator === "undefined") return null;
@@ -105,9 +46,12 @@ function getClientSnapshot(): string {
 export default function GuideSelector({
   sources,
   labels,
+  pageHrefs,
 }: {
   sources: Source[];
   labels: GuideLabels;
+  /** URL of each per-app page, keyed `${sourceId}-${os}`. */
+  pageHrefs: Record<string, string>;
 }) {
   const snapshot = useSyncExternalStore(
     subscribe,
@@ -166,17 +110,7 @@ export default function GuideSelector({
 
   const visibleSources = sources.filter((s) => s.platforms.includes(os));
   const selected = visibleSources.find((s) => s.id === sourceId) ?? null;
-  const steps = selected?.steps[os] ?? [];
-  const shots = selected?.shots?.[os] ?? [];
-
-  // Only show what the source actually transmits.
-  const coverage = selected?.coverage;
-  const provided = coverage
-    ? METRIC_KEYS.flatMap((metric) => {
-        const level = coverage[metric];
-        return level === "no" ? [] : [{ metric, level }];
-      })
-    : [];
+  const pageHref = selected ? pageHrefs[`${selected.id}-${os}`] : undefined;
 
   function pickOs(next: OS) {
     setOsChoice(next);
@@ -236,18 +170,14 @@ export default function GuideSelector({
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {visibleSources.map((s) => {
           const active = s.id === sourceId;
-          return (
-            <button
-              key={s.id}
-              type="button"
-              onClick={() => pickSource(s.id)}
-              aria-pressed={active}
-              className={`rounded-2xl border px-4 py-4 text-left transition-colors ${
-                active
-                  ? "border-lime-300/50 bg-lime-300/[0.08]"
-                  : "border-white/10 bg-white/[0.02] hover:border-white/25 hover:bg-white/[0.04]"
-              }`}
-            >
+          const href = pageHrefs[`${s.id}-${os}`];
+          const className = `rounded-2xl border px-4 py-4 text-left transition-colors ${
+            active
+              ? "border-lime-300/50 bg-lime-300/[0.08]"
+              : "border-white/10 bg-white/[0.02] hover:border-white/25 hover:bg-white/[0.04]"
+          }`;
+          const content = (
+            <>
               <SourceLogo source={s} className="h-5 mb-3" />
               <span
                 className={`block text-sm font-medium ${
@@ -256,6 +186,34 @@ export default function GuideSelector({
               >
                 {s.name}
               </span>
+            </>
+          );
+          // Cards with a per-app page are real links, so crawlers reach those
+          // pages from here. A plain click still opens the panel in place;
+          // ctrl/cmd/middle click opens the page itself.
+          return href ? (
+            <a
+              key={s.id}
+              href={href}
+              onClick={(e) => {
+                if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                e.preventDefault();
+                pickSource(s.id);
+              }}
+              aria-current={active ? "true" : undefined}
+              className={className}
+            >
+              {content}
+            </a>
+          ) : (
+            <button
+              key={s.id}
+              type="button"
+              onClick={() => pickSource(s.id)}
+              aria-pressed={active}
+              className={className}
+            >
+              {content}
             </button>
           );
         })}
@@ -270,81 +228,23 @@ export default function GuideSelector({
             </p>
           </div>
         ) : (
-          <article
-            key={`${selected.id}-${os}`}
-            ref={panelRef}
-            className="scroll-mt-20 rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-8"
-          >
-            <SourceLogo source={selected} className="h-7 mb-5" />
-            <p className="text-xs uppercase tracking-widest text-lime-300/70 mb-3">
-              {selected.name} → {labels.hub[os]} → Sapiens Rank
-            </p>
-            <h3 className="text-2xl font-semibold mb-2">
-              {labels.connect[0]}{selected.name}{labels.connect[1]}{OS_LABEL[os]}{labels.connect[2]}
-            </h3>
-            {provided.length > 0 && (
-              <div className="mt-6">
-                <p className="text-xs text-gray-500 mb-3">
-                  {labels.provides}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {provided.map(({ metric, level }) => {
-                    const style = LEVEL_STYLE[level];
-                    const label = labels.metrics[metric];
-                    const title = labels.levels[level];
-                    return (
-                      <span
-                        key={metric}
-                        title={`${label} — ${title}`}
-                        className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs ${style.className}`}
-                      >
-                        <span aria-hidden="true">{style.mark}</span>
-                        {label}
-                        <span className="sr-only"> : {title}</span>
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
+          <>
+            <GuideArticle
+              key={`${selected.id}-${os}`}
+              ref={panelRef}
+              source={selected}
+              os={os}
+              labels={labels}
+            />
+            {pageHref && (
+              <Link
+                href={pageHref}
+                className="mt-4 inline-block text-xs text-gray-500 hover:text-lime-300 transition-colors"
+              >
+                {labels.permalink} →
+              </Link>
             )}
-
-            <ol className="mt-8 flex flex-col gap-7">
-              {steps.map((step, i) => {
-                const stepShots = shots.filter((shot) => shot.step === i + 1);
-                return (
-                  <li key={step} className="flex gap-4">
-                    <span className="mt-px flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-lime-300/10 text-xs font-semibold text-lime-300">
-                      {i + 1}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-sm leading-relaxed text-gray-300">
-                        {step}
-                      </p>
-                      {stepShots.length > 0 && (
-                        <div className="mt-4 flex flex-wrap gap-3">
-                          {stepShots.map((shot) => (
-                            <div
-                              key={shot.src}
-                              className="w-[190px] overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.02] sm:w-[210px]"
-                            >
-                              <Image
-                                src={shot.src}
-                                alt={shot.alt}
-                                width={640}
-                                height={1388}
-                                sizes="(min-width: 640px) 210px, 190px"
-                                className="h-auto w-full"
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-          </article>
+          </>
         )}
       </div>
     </div>
