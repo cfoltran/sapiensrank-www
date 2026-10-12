@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Header from "./Header";
+import JsonLd from "./JsonLd";
 import Footer from "./Footer";
 import StoreBadges from "./StoreBadges";
 import GuideArticle, { OS_LABEL, SourceLogo, providedMetrics } from "./GuideArticle";
@@ -40,10 +41,6 @@ export function guidePageCopy(page: GuidePage, locale: Locale) {
     next: t.next(app, hub),
   };
 }
-
-const jsonLdScript = (data: object) => ({
-  __html: JSON.stringify(data).replace(/</g, "\\u003c"),
-});
 
 export default function GuideDetailPage({
   page,
@@ -102,8 +99,8 @@ export default function GuideDetailPage({
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(breadcrumb)} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(howTo)} />
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={howTo} />
 
       <Header locale={locale} alternate={guidePagePath(other, page.slug)} />
 

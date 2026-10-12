@@ -10,6 +10,7 @@ export default function Footer({ locale = "en" }: { locale?: Locale }) {
         <span>© {new Date().getFullYear()} Sapiens Rank</span>
         <div className="flex flex-wrap gap-4">
           <Link href={routePath("guide", locale)} className="hover:text-gray-400 transition-colors">{t.guide}</Link>
+          <Link href={routePath("pace", locale)} className="hover:text-gray-400 transition-colors">{t.pace}</Link>
           <a
             href="https://app.notion.com/p/SapiensRank-roadmap-381b384ee6578129b4c5e6bf4ee1d95e?source=copy_link"
             target="_blank"

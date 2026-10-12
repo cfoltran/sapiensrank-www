@@ -10,6 +10,7 @@ export type Locale = "en" | "fr";
 export const ROUTES = {
   home: { en: "/", fr: "/fr" },
   guide: { en: "/health-guide", fr: "/guide-sante" },
+  pace: { en: "/pace-calculator", fr: "/calculateur-allure" },
   deleteAccount: { en: "/delete-account", fr: "/fr/supprimer-compte" },
   privacy: { en: "/privacy" },
   terms: { en: "/terms-and-conditions" },
@@ -22,11 +23,16 @@ export function routePath(route: RouteKey, locale: Locale): string {
   return paths[locale] ?? paths.en;
 }
 
+/** hreflang map of a page that exists in both languages. */
+export function languagesFor(paths: Record<Locale, string>) {
+  return { en: paths.en, fr: paths.fr, "x-default": paths.en };
+}
+
 /** hreflang map for a page, or undefined when it exists in one language. */
 export function routeLanguages(route: RouteKey) {
   const paths: { en: string; fr?: string } = ROUTES[route];
   if (!paths.fr) return undefined;
-  return { en: paths.en, fr: paths.fr, "x-default": paths.en };
+  return languagesFor({ en: paths.en, fr: paths.fr });
 }
 
 export const STORE_LINKS = {
@@ -76,9 +82,7 @@ export function pageMetadata({
   | { route?: never; paths: Record<Locale, string> }
 )): Metadata {
   const path = route ? routePath(route, locale) : pagePaths[locale];
-  const languages = route
-    ? routeLanguages(route)
-    : { en: pagePaths.en, fr: pagePaths.fr, "x-default": pagePaths.en };
+  const languages = route ? routeLanguages(route) : languagesFor(pagePaths);
   const socialTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
 
   return {

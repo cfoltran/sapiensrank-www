@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Header from "./Header";
+import JsonLd from "./JsonLd";
 import Footer from "./Footer";
 import Podium from "./Podium";
 import StoreBadges from "./StoreBadges";
@@ -30,12 +31,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
+      <JsonLd data={jsonLd} />
 
       <Header locale={locale} route="home" />
 
