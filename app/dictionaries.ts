@@ -19,6 +19,7 @@ const en = {
   },
   footer: {
     guide: "Health data guide",
+    pace: "Pace calculator",
     idea: "Submit an idea",
     privacy: "Privacy Policy",
     terms: "Terms & Conditions",
@@ -132,6 +133,7 @@ const fr: Dictionary = {
   },
   footer: {
     guide: "Guide des données santé",
+    pace: "Calculateur d'allure",
     idea: "Proposer une idée",
     privacy: "Confidentialité (EN)",
     terms: "Conditions (EN)",
