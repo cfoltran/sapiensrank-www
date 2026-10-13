@@ -2,7 +2,7 @@ import type { Locale } from "./i18n";
 
 const en = {
   meta: {
-    homeTitle: "Sapiens Rank: the fitness game that turns your health into conquest",
+    homeTitle: "Sapiens Rank: move in real life, level up in the game with your friends",
     homeDescription:
       "Sapiens Rank turns your steps, sleep and heart rate into a daily health score. Earn Sapies, conquer territories with your guild and climb the world leaderboard. Free on iOS and Android.",
     guideTitle: "Sync your health data: Garmin, Fitbit, Strava, COROS",
@@ -30,10 +30,10 @@ const en = {
     googlePlay: "Get it on Google Play",
   },
   home: {
-    heroTitle: "Burn calories.",
-    heroAccent: "Fuel your empire.",
+    heroTitle: "Move in real life,",
+    heroAccent: "level up in the game with your friends.",
     heroText:
-      "Your real life powers a game of conquest. Sync your health app, turn your effort into Sapies, and conquer the world with your friends.",
+      "Sync your health app, turn your effort into Sapies and conquer the world with your guild.",
     screenshots: [
       "Today screen with the daily health score",
       "Battle map",
@@ -116,9 +116,9 @@ export type Dictionary = typeof en;
 
 const fr: Dictionary = {
   meta: {
-    homeTitle: "Sapiens Rank : le jeu fitness qui transforme votre santé en conquête",
+    homeTitle: "Sapiens Rank : bouge dans la vraie vie, avance dans le jeu avec tes amis",
     homeDescription:
-      "Sapiens Rank transforme vos pas, votre sommeil et votre fréquence cardiaque en score santé quotidien. Gagnez des Sapies, conquérez des territoires avec votre guilde et grimpez au classement mondial. Gratuit sur iOS et Android.",
+      "Sapiens Rank transforme tes pas, ton sommeil et ta fréquence cardiaque en score santé quotidien. Gagne des Sapies, conquiers des territoires avec ta guilde et grimpe au classement mondial. Gratuit sur iOS et Android.",
     guideTitle: "Importer vos données de santé : Garmin, Fitbit, Strava, COROS",
     guideDescription:
       "Guide pas à pas pour envoyer vos données Garmin Connect, Google Health (Fitbit), Strava ou COROS vers Apple Santé (iPhone) ou Health Connect (Android), afin que Sapiens Rank calcule votre score quotidien.",
@@ -144,10 +144,10 @@ const fr: Dictionary = {
     googlePlay: "Disponible sur Google Play",
   },
   home: {
-    heroTitle: "Brûlez des calories.",
-    heroAccent: "Bâtissez votre empire.",
+    heroTitle: "Bouge dans la vraie vie,",
+    heroAccent: "avance dans le jeu avec tes amis.",
     heroText:
-      "Votre vraie vie alimente un jeu de conquête. Synchronisez votre app santé, transformez vos efforts en Sapies et conquérez le monde avec vos amis.",
+      "Synchronise ton app santé, transforme tes efforts en Sapies et conquiers le monde avec ta guilde.",
     screenshots: [
       "Écran du jour avec le score santé quotidien",
       "Carte de bataille",
@@ -157,17 +157,17 @@ const fr: Dictionary = {
     ],
     howItWorks: "Comment ça marche",
     steps: [
-      "Synchronisez chaque jour les données de votre app santé : pas, sommeil, fréquence cardiaque, et plus.",
-      "Définissez vos objectifs.",
-      "Transformez vos calories en Sapies, la monnaie du jeu.",
-      "Utilisez vos Sapies pour conquérir des territoires avec vos amis.",
-      "Grimpez au classement mondial.",
+      "Synchronise chaque jour les données de ton app santé : pas, sommeil, fréquence cardiaque, et plus.",
+      "Définis tes objectifs.",
+      "Transforme tes calories en Sapies, la monnaie du jeu.",
+      "Utilise tes Sapies pour conquérir des territoires avec tes amis.",
+      "Grimpe au classement mondial.",
     ],
-    guideLink: "Vous utilisez Garmin, Fitbit, Strava ou COROS ? Voir comment les synchroniser",
-    ctaTitle: "Entrez dans",
+    guideLink: "Tu utilises Garmin, Fitbit, Strava ou COROS ? Vois comment les synchroniser",
+    ctaTitle: "Entre dans",
     ctaAccent: "l'Arène",
     ctaText:
-      "Transformez vos efforts quotidiens en conquête. Rassemblez vos amis, grimpez au classement et dominez le monde.",
+      "Transforme tes efforts quotidiens en conquête. Rassemble tes amis, grimpe au classement et domine le monde.",
     badges: ["Gratuit", "iOS 16+ et Android", "Nécessite une app santé"],
   },
   podium: {
