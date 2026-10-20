@@ -3,6 +3,8 @@ import Link from "next/link";
 import Header from "./Header";
 import JsonLd from "./JsonLd";
 import Footer from "./Footer";
+import HexField from "./HexField";
+import HexSteps from "./HexSteps";
 import Podium from "./Podium";
 import StoreBadges from "./StoreBadges";
 import { getDictionary } from "../dictionaries";
@@ -51,8 +53,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <Header locale={locale} route="home" />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative overflow-hidden pt-32 pb-20 px-6">
+        <HexField />
+        <div className="relative max-w-3xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-semibold leading-tight mb-6">
             {t.heroTitle} <span className="text-lime-300">{t.heroAccent}</span>
           </h1>
@@ -92,23 +95,14 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
       {/* Features */}
       <section className="pb-20 px-6">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-8 text-center">
             {t.howItWorks}
           </h2>
-          <ol className="flex flex-col gap-5">
-            {t.steps.map((text, i) => (
-              <li key={text} className="flex items-start gap-4 text-sm text-gray-300 leading-relaxed">
-                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-lime-300/10 text-lime-300 text-xs font-semibold flex items-center justify-center">
-                  {i + 1}
-                </span>
-                {text}
-              </li>
-            ))}
-          </ol>
+          <HexSteps steps={t.steps} />
           <Link
             href={routePath("guide", locale)}
-            className="mt-8 inline-block text-sm text-lime-300/80 hover:text-lime-300 transition-colors"
+            className="mt-10 block w-fit mx-auto text-center text-sm text-lime-300/80 hover:text-lime-300 transition-colors"
           >
             {t.guideLink} →
           </Link>
