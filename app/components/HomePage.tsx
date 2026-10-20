@@ -8,11 +8,26 @@ import StoreBadges from "./StoreBadges";
 import { getDictionary } from "../dictionaries";
 import { SITE_NAME, SITE_URL, STORE_LINKS, routePath, type Locale } from "../i18n";
 
-const screenshots = ["/1.webp", "/2.webp", "/3.webp", "/4.webp", "/5.webp"];
-
 export default function HomePage({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
   const t = dict.home;
+  const screenshots = [1, 2, 3, 4, 5].map((n) => `/${n}${locale}.webp`);
+
+  const tourVideo = (
+    <div key="tour-video" className="flex-shrink-0 snap-center w-[200px] sm:w-[220px] aspect-[440/952] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl">
+      <video
+        src={`/videos/tour-${locale}.mp4`}
+        poster={`/videos/tour-${locale}.jpg`}
+        aria-label={t.tourVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  );
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -38,9 +53,6 @@ export default function HomePage({ locale }: { locale: Locale }) {
       {/* Hero */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-widest text-gray-500 mb-4">
-            Sapiens Rank
-          </p>
           <h1 className="text-4xl sm:text-5xl font-semibold leading-tight mb-6">
             {t.heroTitle} <span className="text-lime-300">{t.heroAccent}</span>
           </h1>
@@ -55,7 +67,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
       <section className="pb-20">
         <div className="overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none">
           <div className="flex gap-4 w-max mx-auto px-6">
-            {screenshots.map((src, i) => (
+            {screenshots.flatMap((src, i) => [
+              // The video tour sits third in the carousel.
+              ...(i === 2 ? [tourVideo] : []),
               <div
                 key={src}
                 className="flex-shrink-0 snap-center w-[200px] sm:w-[220px] rounded-[32px] overflow-hidden border border-white/10 shadow-2xl"
@@ -68,8 +82,8 @@ export default function HomePage({ locale }: { locale: Locale }) {
                   className="w-full h-auto"
                   priority={i < 3}
                 />
-              </div>
-            ))}
+              </div>,
+            ])}
           </div>
         </div>
       </section>

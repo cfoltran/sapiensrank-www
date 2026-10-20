@@ -22,7 +22,7 @@ export default function PaceCta({ locale }: { locale: Locale }) {
           </div>
           <div className="mx-auto w-[180px] sm:w-full -mb-24 sm:mb-0 overflow-hidden rounded-[28px] border border-white/10 shadow-2xl">
             <Image
-              src="/2.webp"
+              src={`/2${locale}.webp`}
               alt={t.screenshot}
               width={440}
               height={952}

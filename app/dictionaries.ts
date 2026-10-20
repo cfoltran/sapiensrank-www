@@ -41,6 +41,7 @@ const en = {
       "World leaderboard",
       "Presentation page",
     ],
+    tourVideo: "Video tour of the app",
     howItWorks: "How it works",
     steps: [
       "Sync your health app data daily: steps, sleep, heart rate, and more.",
@@ -155,6 +156,7 @@ const fr: Dictionary = {
       "Classement mondial",
       "Page de présentation",
     ],
+    tourVideo: "Visite vidéo de l'app",
     howItWorks: "Comment ça marche",
     steps: [
       "Synchronise chaque jour les données de ton app santé : pas, sommeil, fréquence cardiaque, et plus.",
