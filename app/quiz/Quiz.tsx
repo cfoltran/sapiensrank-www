@@ -58,7 +58,7 @@ function errorText(e: unknown): string {
   return ERRORS[code] ?? "Oups, ça n'a pas marché. Réessaie.";
 }
 
-function Sapies({ value, size = 18 }: { value: number; size?: number }) {
+export function Sapies({ value, size = 18 }: { value: number; size?: number }) {
   return (
     <span className="inline-flex items-center gap-1.5 font-semibold tabular-nums">
       <SapieCoin size={size} />
