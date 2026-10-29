@@ -105,9 +105,9 @@ function Intro({ onStart }: { onStart: (name: string) => Promise<void> }) {
 
   return (
     <div className="flex flex-col gap-8">
-      <p className="text-2xl font-semibold leading-snug">
-        Chaque bonne réponse te rapporte <span className="text-lime-300"><Sapies value={100}/> sapies</span>.{" "}
-        <span className="text-gray-400 font-normal">À la fin, tu peux les récupérer dans l&apos;app SapiensRank.</span>
+      <p className="text-gray-400 text-lg leading-relaxed">
+        Chaque bonne réponse te rapporte <span className="text-white"><Sapies value={100}/> </span>sapies.
+        À la fin, tu peux les récupérer dans l&apos;app SapiensRank.
       </p>
       <form
         className="flex flex-col gap-3"
